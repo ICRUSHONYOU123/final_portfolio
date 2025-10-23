@@ -18,7 +18,7 @@ export default function Portfolio() {
       description: "A complete portforio that talk about me. Full respownsive website build with React + Tailwind css Learning at Etec Center and it my final project",
       tags: ["React", "Tailwind", "Framer Motion"],
       image: Img2,
-      link: "https://example.com/portfolio",
+      link: "final-portfolio-fyhker1o0-bitthork165-5971s-projects.vercel.app",
     },
     {
       id: 3,
@@ -95,4 +95,5 @@ export default function Portfolio() {
     </div>
   )
 }
+
 
