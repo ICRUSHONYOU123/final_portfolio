@@ -46,7 +46,7 @@ export default function Navbar() {
               to="/portfolio"
               className={`hover:text-cyan-400 transition-colors font-medium ${isActive("/portfolio") ? "text-cyan-400" : ""}`}
             >
-              Portfolio
+              Projects
             </Link>
             <Link
               to="/contact"
