@@ -97,14 +97,14 @@ export default function Contact() {
                   <div className="text-2xl">📧</div>
                   <div>
                     <h3 className="font-semibold text-white">Email</h3>
-                    <p className="text-slate-300">john.doe@example.com</p>
+                    <p className="text-slate-300">m.mengrithysak24@cam-ed.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="text-2xl">📱</div>
                   <div>
                     <h3 className="font-semibold text-white">Phone</h3>
-                    <p className="text-slate-300">+1 (555) 123-4567</p>
+                    <p className="text-slate-300">+855 964221831</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
