@@ -141,6 +141,26 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <section>
+        <footer className="bg-slate-900 border-t border-slate-700 py-10 px-4">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-xl font-semibold text-white mb-2">My Portfolio</h3>
+            <p className="text-slate-400 mb-6">
+              Crafting beautiful and functional digital experiences.
+            </p>
+
+            <div className="flex justify-center gap-6 mb-6">
+              <a href="https://facebook.com" className="text-slate-300 hover:text-cyan-400 transition">Facebook</a>
+              <a href="https://github.com" className="text-slate-300 hover:text-cyan-400 transition">GitHub</a>
+              <a href="https://instagram.com" className="text-slate-300 hover:text-cyan-400 transition">Instagram</a>
+            </div>
+
+            <p className="text-slate-500 text-sm">
+              © {new Date().getFullYear()} My Portfolio. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </section>
     </div>
   )
 }
