@@ -53,7 +53,7 @@ export default function Home() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5 text-cyan-400 text-sm font-medium mb-8">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            Available for freelance work
+            Available for full time work 
           </div>
 
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black mb-6 leading-tight">

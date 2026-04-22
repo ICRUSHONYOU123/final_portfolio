@@ -39,3 +39,10 @@ body {
   background: rgba(6, 182, 212, 0.3);
   color: #e2e8f0;
 }
+
+/* Remove black shadow from video controls and make them black for white backgrounds */
+video::-webkit-media-controls-panel {
+  background-image: none !important;
+  background-color: transparent !important;
+  filter: invert(1) hue-rotate(180deg) !important;
+}

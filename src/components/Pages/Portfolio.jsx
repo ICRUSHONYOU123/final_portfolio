@@ -1,22 +1,36 @@
+import { useState } from "react"
 import Img1 from "../../assets/img1.jpg"
 import Img2 from "../../assets/img2.jpg"
 import Img3 from "../../assets/img3.jpg"
 import Img4 from "../../assets/img4.jpg"
+import Img5 from "../../assets/image5.png"
 import Footer from "../Footer"
 
 const projects = [
   {
     id: 1,
-    title: "License Key Website",
+    title: "Student Management System",
     description:
-      "A game hacking & selling platform with cart, checkout, payment integration, and automatic key generation.",
-    tags: ["React", "Laravel", "PostgreSQL", "Tailwind"],
-    image: Img1,
-    link: "https://laravel-project-hosting.onrender.com/",
+      "3-role system (Admin, Teacher, Student) with different permission levels to access features.",
+    tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
+    image: Img4,
+    link: "#",
+    video: "/student_management_demo.mp4",
     status: "live",
   },
   {
     id: 2,
+    title: "Drink Store System",
+    description:
+      "2-role system (Admin, Customer) with different permission levels to access features.",
+    tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
+    image: Img5,
+    link: "#",
+    video: "/drink_store_demo.mp4",
+    status: "live",
+  },
+  {
+    id: 3,
     title: "Portfolio Website",
     description:
       "A fully responsive personal portfolio built with React + Tailwind CSS as my final project at Etec Center.",
@@ -26,17 +40,17 @@ const projects = [
     status: "live",
   },
   {
-    id: 3,
-    title: "Student Management System",
+    id: 4,
+    title: "License Key Website",
     description:
-      "3-role system (Admin, Teacher, Student) with different permission levels to access features.",
-    tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
-    image: Img4,
-    link: "#",
+      "A game hacking & selling platform with cart, checkout, payment integration, and automatic key generation.",
+    tags: ["React", "Laravel", "PostgreSQL", "Tailwind"],
+    image: Img1,
+    link: "https://laravel-project-hosting.onrender.com/",
     status: "live",
   },
   {
-    id: 4,
+    id: 5,
     title: "Coming Soon",
     description:
       "A React + Laravel marketplace handling product listings, shopping cart flows, secure payment processing, and programmatic license-keys.",
@@ -46,7 +60,7 @@ const projects = [
     status: "soon",
   },
   {
-    id: 5,
+    id: 6,
     title: "Coming Soon",
     description:
       "A React + Laravel marketplace handling product listings, shopping cart flows, secure payment processing, and programmatic license-keys.",
@@ -56,7 +70,7 @@ const projects = [
     status: "soon",
   },
   {
-    id: 6,
+    id: 7,
     title: "Coming Soon",
     description:
       "A React + Laravel marketplace handling product listings, shopping cart flows, secure payment processing, and programmatic license-keys.",
@@ -68,6 +82,8 @@ const projects = [
 ]
 
 export default function Portfolio() {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* ── Header ── */}
@@ -141,17 +157,30 @@ export default function Portfolio() {
 
                 {/* CTA */}
                 {project.status === "live" ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-300 shadow-md shadow-cyan-500/20"
-                  >
-                    View Project
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                  project.video ? (
+                    <button
+                      onClick={() => setSelectedVideo(project.video)}
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-300 shadow-md shadow-cyan-500/20"
+                    >
+                      View Demo Video
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </button>
+                  ) : (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-300 shadow-md shadow-cyan-500/20"
+                    >
+                      View Project
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  )
                 ) : (
                   <button
                     disabled
@@ -165,6 +194,28 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={() => setSelectedVideo(null)}>
+          <div className="relative w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-red-500 text-white rounded-full transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <video 
+              src={selectedVideo} 
+              controls 
+              autoPlay 
+              className="w-full h-auto max-h-[85vh] rounded-2xl bg-white"
+            />
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
