@@ -22,7 +22,7 @@ const projects = [
     id: 2,
     title: "Drink Store System",
     description:
-      "2-role system (Admin, Customer) with different permission levels to access features real payment access QR pop up .",
+      "2-role system (Admin, Customer) with different permission levels to access features real payment access QR pop up.",
     tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
     image: Img5,
     link: "#",
