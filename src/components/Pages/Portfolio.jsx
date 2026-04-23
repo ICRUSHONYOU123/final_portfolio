@@ -11,7 +11,7 @@ const projects = [
     id: 1,
     title: "Student Management System",
     description:
-      "3-role system (Admin, Teacher, Student) with different permission levels to access features.",
+      "3-role system (Admin, Teacher, Student) with different permission levels to access features Real world project.",
     tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
     image: Img4,
     link: "#",
@@ -22,7 +22,7 @@ const projects = [
     id: 2,
     title: "Drink Store System",
     description:
-      "2-role system (Admin, Customer) with different permission levels to access features.",
+      "2-role system (Admin, Customer) with different permission levels to access features real payment access QR pop up .",
     tags: ["React", "Tailwind", "Laravel", "PostgreSQL"],
     image: Img5,
     link: "#",
