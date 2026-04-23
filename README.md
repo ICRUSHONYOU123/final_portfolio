@@ -41,7 +41,7 @@ Designed to simulate real academic workflows and system logic.
 
 ## 🌐 Live Demo
 
-🔗 https://final-portfolio-rho-ten.vercel.app
+🔗 final-portfolio-rho-ten.vercel.app
 
 ---
 
