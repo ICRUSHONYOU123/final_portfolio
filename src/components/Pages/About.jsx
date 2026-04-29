@@ -20,7 +20,7 @@ const certificates = [
     image: certCpp,
     color: "from-orange-500/10 to-amber-500/5 border-orange-500/20",
     badge: "bg-orange-500/10 text-orange-400 border-orange-500/20",
-    icon: "⚙️",
+    icon: <i className="fa-solid fa-cogs"></i>,
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const certificates = [
     image: certPython,
     color: "from-blue-500/10 to-sky-500/5 border-blue-500/20",
     badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    icon: "🐍",
+    icon: <i className="fa-brands fa-python"></i>,
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const certificates = [
     image: certJava,
     color: "from-red-500/10 to-rose-500/5 border-red-500/20",
     badge: "bg-red-500/10 text-red-400 border-red-500/20",
-    icon: "☕",
+    icon: <i className="fa-brands fa-java"></i>,
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const certificates = [
     image: certPhp,
     color: "from-purple-500/10 to-violet-500/5 border-purple-500/20",
     badge: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    icon: "🐘",
+    icon: <i className="fa-brands fa-php"></i>,
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const certificates = [
     image: certReactjs,
     color: "from-cyan-500/10 to-teal-500/5 border-cyan-500/20",
     badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    icon: "⚛️",
+    icon: <i className="fa-brands fa-react"></i>,
   },
 ]
 
@@ -188,7 +188,7 @@ export default function About() {
             {/* ── Skills ── */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
               <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm">⚡</span>
+                <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm"><i className="fa-solid fa-bolt"></i></span>
                 Skills &amp; Technologies
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -206,7 +206,7 @@ export default function About() {
             {/* ── Experience ── */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
               <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">🗓</span>
+                <span className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm"><i className="fa-regular fa-calendar-alt"></i></span>
                 Experience &amp; Education
               </h2>
               <div className="space-y-5 relative">
@@ -234,7 +234,7 @@ export default function About() {
             {/* ── Certificates ── */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
               <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-sm">🏆</span>
+                <span className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-sm"><i className="fa-solid fa-trophy"></i></span>
                 Certificates – Etec Center
               </h2>
               <p className="text-slate-500 text-sm mb-6 ml-11">Click "View Certificate" to see the official document</p>
