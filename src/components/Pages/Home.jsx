@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import Footer from "../Footer"
 import profilePhoto from "../../assets/profile.png"
+import { motion } from "framer-motion"
 
 const techStack = [
   { name: "React", icon: <i className="fa-brands fa-react text-[#61DAFB]"></i> },
@@ -23,7 +24,6 @@ const stats = [
   { value: "5+", label: "Years Experience" },
   { value: "100%", label: "Client Satisfaction" },
 ]
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -53,7 +53,12 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             {/* Left Content */}
-            <div className="flex-1 text-center lg:text-left">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex-1 text-center lg:text-left"
+            >
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5 text-cyan-400 text-sm font-medium mb-8">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
@@ -89,10 +94,15 @@ export default function Home() {
                   Contact Me
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Content - Profile Image */}
-            <div className="flex-1 flex justify-center lg:justify-end relative">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex-1 flex justify-center lg:justify-end relative"
+            >
               {/* Decorative glow behind image */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
               
@@ -103,26 +113,37 @@ export default function Home() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Scroll cue */}
-          <div className="mt-20 flex flex-col items-center gap-2 text-slate-600 animate-bounce">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-20 flex flex-col items-center gap-2 text-slate-600 animate-bounce"
+          >
             <span className="text-xs">Scroll down</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
             </svg>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ── Services ── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <span className="text-cyan-400 text-sm font-semibold uppercase tracking-widest">What I Do</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">Services I Offer</h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -146,15 +167,19 @@ export default function Home() {
                 color: "from-purple-500/10 to-violet-500/5 border-purple-500/20",
                 glow: "group-hover:shadow-purple-500/10",
               },
-            ].map((s) => (
-              <div
+            ].map((s, idx) => (
+              <motion.div
                 key={s.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
                 className={`group relative bg-gradient-to-br ${s.color} border rounded-2xl p-8 hover:shadow-xl ${s.glow} transition-all duration-300 hover:-translate-y-1`}
               >
                 <div className="text-5xl mb-5">{s.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{s.title}</h3>
                 <p className="text-slate-400 leading-relaxed text-sm">{s.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -166,13 +191,20 @@ export default function Home() {
         <div className="absolute inset-0 border-y border-slate-800/60" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center group">
+            {stats.map((s, idx) => (
+              <motion.div 
+                key={s.label} 
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="text-center group"
+              >
                 <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {s.value}
                 </div>
                 <div className="text-slate-400 text-sm font-medium">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -181,24 +213,34 @@ export default function Home() {
       {/* ── Tech Stack ── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <span className="text-cyan-400 text-sm font-semibold uppercase tracking-widest">My Toolkit</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">Technologies I Work With</h2>
             <p className="text-slate-400 mt-3 max-w-xl mx-auto text-sm">
               Leveraging modern tools and frameworks to build scalable, maintainable applications
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {techStack.map((tech)=>(
-              <div
+            {techStack.map((tech, idx)=>(
+              <motion.div
                 key={tech.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="group bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/30 p-5 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/5 cursor-default"
               >
                 <div className="text-2xl mb-2">{tech.icon}</div>
                 <div className="text-slate-300 group-hover:text-white text-xs font-semibold transition-colors duration-200">
                   {tech.name}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -206,7 +248,13 @@ export default function Home() {
 
       {/* ── CTA ── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700/60 rounded-3xl p-12 text-center overflow-hidden">
             {/* Decorative glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
@@ -226,7 +274,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <Footer />

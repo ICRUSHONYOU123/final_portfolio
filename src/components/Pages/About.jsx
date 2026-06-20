@@ -6,7 +6,7 @@ import certPython from "../../assets/cert_python.jpg"
 import certJava from "../../assets/cert_java.jpg"
 import certReactjs from "../../assets/cert_reactjs.jpg"
 import certPhp from "../../assets/cert_php.jpg"
-
+import AquaSystem from "../../assets/image.jpg"
 const skills = [
   "React", "JavaScript", "Tailwind CSS", "Bootstrap",
   "PHP", "Laravel", "Git", "PostgreSQL", "Hosting",
@@ -53,7 +53,7 @@ const certificates = [
     id: 5,
     title: "HTML, CSS, Bootstrap, JavaScript, ReactJS & Project Courses",
     granted: "November 15, 2025",
-    image: certReactjs,
+    image: AquaSystem,
     color: "from-cyan-500/10 to-teal-500/5 border-cyan-500/20",
     badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     icon: <i className="fa-brands fa-react"></i>,
