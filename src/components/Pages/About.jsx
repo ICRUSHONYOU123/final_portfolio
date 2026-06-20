@@ -6,7 +6,7 @@ import certPython from "../../assets/cert_python.jpg"
 import certJava from "../../assets/cert_java.jpg"
 import certReactjs from "../../assets/cert_reactjs.jpg"
 import certPhp from "../../assets/cert_php.jpg"
-import AquaSystem from "../../assets/image.jpg"
+import AquaSystem from "../../assets/image.png"
 const skills = [
   "React", "JavaScript", "Tailwind CSS", "Bootstrap",
   "PHP", "Laravel", "Git", "PostgreSQL", "Hosting",
