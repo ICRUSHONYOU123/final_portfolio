@@ -1,12 +1,13 @@
 import { useState } from "react"
+import { motion } from "framer-motion"
 import Footer from "../Footer"
+import ScrollToNext from "../ScrollToNext"
 import profilePhoto from "../../assets/profile.png"
 import certCpp from "../../assets/cert_cpp.jpg"
 import certPython from "../../assets/cert_python.jpg"
 import certJava from "../../assets/cert_java.jpg"
 import certReactjs from "../../assets/cert_reactjs.jpg"
 import certPhp from "../../assets/cert_php.jpg"
-import AquaSystem from "../../assets/image.png"
 const skills = [
   "React", "JavaScript", "Tailwind CSS", "Bootstrap",
   "PHP", "Laravel", "Git", "PostgreSQL", "Hosting",
@@ -19,7 +20,7 @@ const certificates = [
     granted: "October 15, 2024",
     image: certCpp,
     color: "from-orange-500/10 to-amber-500/5 border-orange-500/20",
-    badge: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+    badge: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
     icon: <i className="fa-solid fa-cogs"></i>,
   },
   {
@@ -28,7 +29,7 @@ const certificates = [
     granted: "March 15, 2025",
     image: certPython,
     color: "from-blue-500/10 to-sky-500/5 border-blue-500/20",
-    badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    badge: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
     icon: <i className="fa-brands fa-python"></i>,
   },
   {
@@ -37,7 +38,7 @@ const certificates = [
     granted: "June 15, 2025",
     image: certJava,
     color: "from-red-500/10 to-rose-500/5 border-red-500/20",
-    badge: "bg-red-500/10 text-red-400 border-red-500/20",
+    badge: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
     icon: <i className="fa-brands fa-java"></i>,
   },
   {
@@ -46,21 +47,27 @@ const certificates = [
     granted: "October 15, 2025",
     image: certPhp,
     color: "from-purple-500/10 to-violet-500/5 border-purple-500/20",
-    badge: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    badge: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     icon: <i className="fa-brands fa-php"></i>,
   },
   {
     id: 5,
     title: "HTML, CSS, Bootstrap, JavaScript, ReactJS & Project Courses",
     granted: "November 15, 2025",
-    image: AquaSystem,
+    image: certReactjs,
     color: "from-cyan-500/10 to-teal-500/5 border-cyan-500/20",
-    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+    badge: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20",
     icon: <i className="fa-brands fa-react"></i>,
   },
 ]
 
 const experiences = [
+  {
+    role: "Full-stack Developer Intern — Inklusivity Technology",
+    period: "2026 · 6 Months (Completed)",
+    type: "Internship",
+    desc: "Designed and built AFM, a full financial modelling platform (7-year P&L, balance sheet, cash flow, valuation & scenario projections), 100% solo from an empty repo to production — now live at fmodelling.e-workplace.net.",
+  },
   {
     role: "Studying at Norton University",
     period: "2023 – Present",
@@ -79,7 +86,7 @@ export default function About() {
   const [selectedCert, setSelectedCert] = useState(null)
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300">
       {/* ── Certificate Modal / Lightbox ── */}
       {selectedCert && (
         <div
@@ -87,22 +94,22 @@ export default function About() {
           onClick={() => setSelectedCert(null)}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm" />
 
           {/* Modal */}
           <div
-            className="relative z-10 bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden shadow-2xl max-w-lg w-full"
+            className="relative z-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-2xl max-w-lg w-full"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800">
               <div>
                 <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Certificate of Completion</p>
-                <h3 className="text-white font-bold text-sm leading-snug max-w-xs">{selectedCert.title}</h3>
+                <h3 className="text-slate-900 dark:text-white font-bold text-sm leading-snug max-w-xs">{selectedCert.title}</h3>
               </div>
               <button
                 onClick={() => setSelectedCert(null)}
-                className="ml-4 flex-shrink-0 w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors text-lg leading-none"
+                className="ml-4 flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-white flex items-center justify-center transition-colors text-lg leading-none"
                 aria-label="Close"
               >
                 ×
@@ -110,7 +117,7 @@ export default function About() {
             </div>
 
             {/* Certificate image */}
-            <div className="bg-slate-950 p-4">
+            <div className="bg-slate-100 dark:bg-slate-950 p-4">
               <img
                 src={selectedCert.image}
                 alt={`Certificate – ${selectedCert.title}`}
@@ -119,9 +126,9 @@ export default function About() {
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-4 border-t border-slate-800 flex items-center justify-between">
+            <div className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
               <span className="text-slate-500 text-xs">Granted: {selectedCert.granted}</span>
-              <span className="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full font-medium">
+              <span className="text-xs bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full font-medium">
                 ✓ Verified
               </span>
             </div>
@@ -141,18 +148,36 @@ export default function About() {
         {/* ── Hero / Profile ── */}
         <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <span className="text-cyan-400 text-sm font-semibold uppercase tracking-widest">About Me</span>
-            <h1 className="text-5xl sm:text-6xl font-black text-white mt-2 mb-10">Who I Am</h1>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <span className="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 text-sm font-semibold uppercase tracking-widest">
+                <span className="w-8 h-px bg-cyan-600 dark:bg-cyan-400" />
+                About Me
+              </span>
+              <h1 className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white mt-3 mb-10">
+                Who I{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 dark:from-cyan-400 via-blue-500 dark:via-blue-400 to-purple-600 dark:to-purple-500">Am</span>
+              </h1>
+            </motion.div>
 
             {/* Profile card */}
-            <div className="relative bg-gradient-to-br from-slate-900 to-slate-800/60 border border-slate-700/60 rounded-3xl p-8 sm:p-10 mb-8 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+              className="relative bg-gradient-to-br from-white to-slate-100 border border-slate-200 shadow-sm dark:from-slate-900 dark:to-slate-800/60 dark:border-slate-700/60 rounded-3xl p-8 sm:p-10 mb-8 overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
               <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 {/* Real photo */}
                 <div className="relative flex-shrink-0">
-                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden ring-4 ring-cyan-500/20 shadow-2xl shadow-cyan-500/10">
+                  {/* Gradient ring */}
+                  <div className="absolute -inset-1 rounded-[18px] bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-500 opacity-70 blur-[1.5px]" />
+                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden ring-4 ring-white dark:ring-slate-900 shadow-2xl shadow-cyan-500/10">
                     <img
                       src={profilePhoto}
                       alt="Meng Rithisak"
@@ -167,74 +192,105 @@ export default function About() {
                 </div>
 
                 <div className="flex-1 text-center md:text-left mt-4 md:mt-0">
-                  <h2 className="text-3xl sm:text-4xl font-black text-white">Meng Rithisak</h2>
-                  <p className="text-cyan-400 font-semibold mt-1 mb-4 text-lg">Full Stack Developer</p>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Meng Rithisak</h2>
+                  <p className="text-cyan-600 dark:text-cyan-400 font-semibold mt-1 mb-4 text-lg">Full Stack Developer</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
                     Passionate about creating elegant solutions to complex problems. Currently studying Software
                     Development at Norton University and honing my craft at Etec Center — building modern,
                     responsive applications that users love.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-5 justify-center md:justify-start">
                     {["Cambodia 🇰🇭", "Full Stack", "Open Source"].map((tag) => (
-                      <span key={tag} className="bg-slate-800 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">
+                      <span key={tag} className="bg-slate-100 border border-slate-200 text-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 text-xs px-3 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* ── Skills ── */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
-              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm"><i className="fa-solid fa-bolt"></i></span>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-white/80 border border-slate-200 shadow-sm dark:bg-slate-900/60 dark:border-slate-800 rounded-2xl p-8 mb-8">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-sm"><i className="fa-solid fa-bolt"></i></span>
                 Skills &amp; Technologies
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {skills.map((skill) => (
                   <div
                     key={skill}
-                    className="bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700 hover:border-cyan-500/30 px-4 py-3 rounded-xl text-center text-sm font-medium text-slate-300 hover:text-white transition-all duration-200 cursor-default"
+                    className="bg-slate-100 hover:bg-slate-200 border border-slate-200 hover:border-cyan-500/30 text-slate-700 hover:text-slate-900 dark:bg-slate-800/60 dark:hover:bg-slate-700/60 dark:border-slate-700 dark:hover:border-cyan-500/30 dark:text-slate-300 dark:hover:text-white px-4 py-3 rounded-xl text-center text-sm font-medium transition-all duration-200 cursor-default"
                   >
                     {skill}
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* ── Experience ── */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
-              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm"><i className="fa-regular fa-calendar-alt"></i></span>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-white/80 border border-slate-200 shadow-sm dark:bg-slate-900/60 dark:border-slate-800 rounded-2xl p-8 mb-8">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-sm"><i className="fa-regular fa-calendar-alt"></i></span>
                 Experience &amp; Education
               </h2>
               <div className="space-y-5 relative">
                 <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-cyan-500/40 via-blue-500/20 to-transparent hidden sm:block" />
-                {experiences.map((exp, i) => (
-                  <div key={i} className="sm:pl-10 relative">
-                    <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center hidden sm:flex">
-                      <div className="w-2 h-2 rounded-full bg-white" />
-                    </div>
-                    <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-5">
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <h3 className="text-white font-bold">{exp.role}</h3>
-                        <span className="text-xs bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2.5 py-0.5 rounded-full font-medium">
-                          {exp.period}
-                        </span>
+                {experiences.map((exp, i) => {
+                  const isIntern = exp.type === "Internship"
+                  return (
+                    <div key={i} className="sm:pl-10 relative">
+                      <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full items-center justify-center hidden sm:flex ${
+                        isIntern ? "bg-gradient-to-br from-amber-400 to-orange-500" : "bg-gradient-to-br from-cyan-400 to-blue-500"
+                      }`}>
+                        <div className="w-2 h-2 rounded-full bg-white" />
                       </div>
-                      <p className="text-xs text-blue-400 font-medium mb-2">{exp.type}</p>
-                      <p className="text-slate-400 text-sm leading-relaxed">{exp.desc}</p>
+                      <div className={`rounded-xl p-5 transition-colors duration-300 ${
+                        isIntern
+                          ? "bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/25 hover:border-amber-500/40"
+                          : "bg-slate-100/80 border border-slate-200 hover:border-slate-300 dark:bg-slate-800/40 dark:border-slate-700/60 dark:hover:border-slate-600"
+                      }`}>
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                          <h3 className="text-slate-900 dark:text-white font-bold">{exp.role}</h3>
+                          <span className={`text-xs border px-2.5 py-0.5 rounded-full font-medium ${
+                            isIntern
+                              ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/25"
+                              : "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/20"
+                          }`}>
+                            {exp.period}
+                          </span>
+                        </div>
+                        <p className={`text-xs font-medium mb-2 ${isIntern ? "text-amber-600 dark:text-amber-400" : "text-blue-600 dark:text-blue-400"}`}>
+                          {isIntern && <i className="fa-solid fa-star mr-1.5" />}
+                          {exp.type}
+                        </p>
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{exp.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
-            </div>
+            </motion.div>
 
             {/* ── Certificates ── */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 mb-8">
-              <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-sm"><i className="fa-solid fa-trophy"></i></span>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-white/80 border border-slate-200 shadow-sm dark:bg-slate-900/60 dark:border-slate-800 rounded-2xl p-8 mb-8">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 text-sm"><i className="fa-solid fa-trophy"></i></span>
                 Certificates – Etec Center
               </h2>
               <p className="text-slate-500 text-sm mb-6 ml-11">Click "View Certificate" to see the official document</p>
@@ -247,9 +303,9 @@ export default function About() {
                   >
                     {/* Icon + title */}
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl flex-shrink-0 mt-0.5">{cert.icon}</span>
+                      <span className="text-2xl flex-shrink-0 mt-0.5 text-slate-700 dark:text-slate-200">{cert.icon}</span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm leading-snug">{cert.title}</p>
+                        <p className="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{cert.title}</p>
                         <p className="text-slate-500 text-xs mt-1">Granted: {cert.granted}</p>
                       </div>
                     </div>
@@ -261,7 +317,7 @@ export default function About() {
                       </span>
                       <button
                         onClick={() => setSelectedCert(cert)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 px-3 py-1.5 rounded-lg transition-all duration-200"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-300 hover:border-slate-400 dark:text-slate-300 dark:hover:text-white dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 dark:hover:border-slate-500 px-3 py-1.5 rounded-lg transition-all duration-200"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -273,12 +329,13 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </section>
       </div>
 
+      <ScrollToNext to="/portfolio" label="My Projects" />
       <Footer />
     </div>
   )

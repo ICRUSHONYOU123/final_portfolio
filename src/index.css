@@ -14,29 +14,46 @@ html {
 }
 
 body {
-  background-color: #020617; /* slate-950 */
+  background-color: #f8fafc; /* slate-50 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html.dark body {
+  background-color: #020617; /* slate-950 */
+}
 
-/* Custom scrollbar */
+/* Custom scrollbar — light */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #94a3b8;
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #06b6d4;
 }
 
+/* Custom scrollbar — dark */
+html.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
 /* Selection highlight */
 ::selection {
   background: rgba(6, 182, 212, 0.3);
+  color: #0f172a;
+}
+html.dark ::selection {
   color: #e2e8f0;
 }
 
