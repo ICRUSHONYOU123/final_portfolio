@@ -25,7 +25,6 @@ const featured = {
   ],
   tags: ["React", "Tailwind CSS", "Laravel API", "PostgreSQL", "Chart.js", "i18n EN/KH"],
   credentials: [
-    { role: "Admin", email: "admin@afm.com", password: "Admin@2026", badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30" },
     { role: "User", email: "rithisak@gmail.com", password: "12345678", badge: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/30" },
   ],
 }
